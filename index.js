@@ -1,8 +1,10 @@
 'use strict';
 
 const express = require('express');
+const mongoose = require ('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
+const passport = require('passport');
 
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
