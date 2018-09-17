@@ -1,0 +1,29 @@
+[
+  {
+    "_id" : "5b9aaac8e2969f21f0f46653",
+    "firstName" : "Tester",
+    "lastName" : "Testing",
+    "username" : "testertesting",
+    "badgeId" : "1234",
+    "email" : "tester@testing.com",
+    "password" : "$2a$10$i/fPSubi6/UbffSV2l2nc.yWyzf6MUAdIARS3gT5gJt9dw8z.oXjy"
+  },
+  {
+    "_id" : "5b9adabee2969f21f0f46654",
+    "firstName" : "Bob",
+    "lastName" : "User",
+    "username" : "bobuser",
+    "badgeId" : "5678",
+    "email" : "bob@user.com",
+    "password" : "$2a$10$G15Iqp1kmc/4ZjYXubJKH.DZ.yzL6RG0ETzkLrffTwrl19KQ3DSge"
+  },
+  {
+    "_id" : "5b9adc68e2969f21f0f46655",
+    "firstName" : "Jane",
+    "lastName" : "User",
+    "username" : "janeuser",
+    "badgeId" : "1111",
+    "email" : "jane@user.com",
+    "password" : "$2a$10$.3iXdEXdPhkC/5vbtS9tTukPtytOC.RQg.OhJwmQxV0aMMyABcrFK"
+  }
+]
