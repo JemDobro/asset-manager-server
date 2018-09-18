@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
   let filter = { userId };
 
   Request.find(filter)
-    .sort({ endDate: 'desc' })
+    .sort({ end : 'desc' })
     .then(results => {
       res.json(results);
     })
@@ -49,17 +49,17 @@ router.get('/:id', (req, res, next) => {
 
 /* ========== POST/CREATE AN ITEM ========== */
 router.post('/', (req, res, next) => {
-  const { type, model, version, quantity, startDate, endDate } = req.body;
+  const { type, model, version, quantity, start, end } = req.body;
   const userId = req.user.id;
 
-  const requiredFields = ['type', 'model', 'quantity', 'startDate', 'endDate'];
+  const requiredFields = ['type', 'model', 'quantity', 'start', 'end'];
   const missingField = requiredFields.find(field => !(field in req.body)); 
   if (missingField) {
     const err = new Error(`Missing '${missingField}' in request body`);
     err.status = 422;
     return next(err);
   }
-  const newRequest = { type, model, version, quantity, startDate, endDate, userId }; 
+  const newRequest = { type, model, version, quantity, start, end, userId }; 
   Request.create(newRequest)
     .then(result => {
       return res.status(201)
@@ -77,7 +77,7 @@ router.put('/:id', (req, res, next) => {
   const userId = req.user.id;
 
   const toUpdate = {};
-  const updateableFields = ['type', 'model', 'version', 'quantity', 'startDate', 'endDate', 'status'];
+  const updateableFields = ['type', 'model', 'version', 'quantity', 'start', 'end', 'status'];
 
   updateableFields.forEach(field => {
     if (field in req.body) {
@@ -92,7 +92,7 @@ router.put('/:id', (req, res, next) => {
     return next(err);
   }
 
-  const requiredFields = ['type', 'model', 'quantity', 'startDate', 'endDate'];
+  const requiredFields = ['type', 'model', 'quantity', 'start', 'end'];
   const missingField = requiredFields.find(field => !(field in req.body)); 
   if (missingField) {
     const err = new Error(`Missing '${missingField}' in request body`);

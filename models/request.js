@@ -7,8 +7,8 @@ const requestSchema = new mongoose.Schema ({
   model: { type: String, required: true }, 
   version: String,  
   quantity: { type: Number, required: true, default: 0 }, 
-  startDate: { type: Date, required: true }, 
-  endDate: {type: Date, required: true },
+  start: { type: Date, required: true }, 
+  end: {type: Date, required: true },
   status: {type: String, default: "Pending" },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
