@@ -71,7 +71,41 @@ router.post('/', (req, res, next) => {
     });
 });
 
-/* ========== PUT/UPDATE A SINGLE ITEM ========== */
+/* ========== PATCH/UPDATE A SINGLE ITEM/particular fields ========== */
+router.patch('/:id', (req, res, next) => {
+  const { id } = req.params;
+  const userId = req.user.id;
+
+  const toUpdate = {};
+  const updateableFields = ['type', 'model', 'version', 'quantity', 'start', 'end', 'status'];
+
+  updateableFields.forEach(field => {
+    if (field in req.body) {
+      toUpdate[field] = req.body[field];
+    }
+  });
+
+  /***** Never trust users - validate input *****/
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    const err = new Error('The `id` is not valid');
+    err.status = 400;
+    return next(err);
+  }
+
+  Request.findByIdAndUpdate({ _id: id, userId }, toUpdate, { new: true })
+    .then(result => {
+      if (result) {
+        res.json(result);
+      } else {
+        next();
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+/* ========== PUT/UPDATE A SINGLE ITEM by including all fields ========== */
 router.put('/:id', (req, res, next) => {
   const { id } = req.params;
   const userId = req.user.id;

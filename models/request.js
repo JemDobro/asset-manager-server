@@ -9,7 +9,7 @@ const requestSchema = new mongoose.Schema ({
   quantity: { type: Number, required: true, default: 0 }, 
   start: { type: Date, required: true }, 
   end: {type: Date, required: true },
-  status: {type: String, default: "Pending" },
+  status: {type: String, default: "pending" },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
