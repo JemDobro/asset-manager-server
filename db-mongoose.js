@@ -17,12 +17,8 @@ function dbDisconnect() {
   return mongoose.disconnect();
 }
 
-function dbGet() {  //what is this, and what does it do?  Currently not imported anywhere
-  return mongoose;
-}
 
 module.exports = {
   dbConnect,
-  dbDisconnect,
-  dbGet
+  dbDisconnect
 };

@@ -1,6 +1,5 @@
 'use strict';
 const express = require('express');
-// const mongoose = require('mongoose');
 
 const Asset = require('../models/asset');
 const router = express.Router();
