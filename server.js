@@ -1,7 +1,5 @@
 'use strict';
-require('dotenv').config();//I think I should be able to move this to config.js if I want to just like it is
 const express = require('express');
-// const mongoose = require ('mongoose'); //I think this is not needed here due to existence of db-mongoose.js
 const cors = require('cors');
 const morgan = require('morgan');
 const passport = require('passport');
@@ -17,10 +15,6 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 
 const app = express();
-
-// app.use(
-//   cors()
-// );
 
 app.use(
   cors({
@@ -56,7 +50,6 @@ app.use((err, req, res) => {
     res.status(err.status).json(errBody);
   } else {
     res.status(500).json({ message: 'Internal Server Error' });
-    if (err.name !== 'FakeError') { console.log(err); }
   }
 });
 
