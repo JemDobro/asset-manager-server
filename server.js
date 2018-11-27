@@ -18,15 +18,15 @@ const authRouter = require('./routes/auth');
 
 const app = express();
 
-app.use(
-  cors()
-);
-
 // app.use(
-//   cors({
-//     origin: CLIENT_ORIGIN
-//   })
+//   cors()
 // );
+
+app.use(
+  cors({
+    origin: CLIENT_ORIGIN
+  })
+);
 
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
   skip: () => process.env.NODE_ENV === 'test'
