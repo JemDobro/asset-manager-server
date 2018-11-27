@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').load();
+require('dotenv').config();
 
 module.exports = {
   PORT: process.env.PORT || 8080,
