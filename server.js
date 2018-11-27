@@ -1,5 +1,4 @@
 'use strict';
-require('dotenv').config();//I think I should be able to move this to config.js if I want to just like it is
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
