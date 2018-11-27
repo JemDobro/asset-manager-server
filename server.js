@@ -18,17 +18,17 @@ const authRouter = require('./routes/auth');
 
 const app = express();
 
-app.use(morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
-  skip: () => process.env.NODE_ENV === 'test'
-}));
-
-app.use(express.json());
-
 app.use(
   cors({
     origin: CLIENT_ORIGIN
   })
 );
+
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
+  skip: () => process.env.NODE_ENV === 'test'
+}));
+
+app.use(express.json());
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
