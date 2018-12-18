@@ -1,80 +1,80 @@
 [
   {
-      "_id" : "5b9efe1e35fa5168a8b73f24",
-      "owner" : "Inventory",
-      "type" : "Interposer",
-      "model" : "3287",
-      "status" : "available"
+    "_id" : "5b9efe1e35fa5168a8b73f24",
+    "owner" : "Inventory",
+    "type" : "Interposer",
+    "model" : "3287",
+    "status" : "available"
   },
   {
-      "_id" : "5b9eff5435fa5168a8b73f27",
-      "owner" : "Inventory",
-      "type" : "Chipset Board",
-      "model" : "5837",
-      "version" : "1",
-      "status" : "available"   
+    "_id" : "5b9eff5435fa5168a8b73f27",
+    "owner" : "Inventory",
+    "type" : "Chipset Board",
+    "model" : "5837",
+    "version" : "1",
+    "status" : "available"   
   },
   {
-      "_id" : "5b9effac35fa5168a8b73f28",
-      "owner" : "Inventory",
-      "type" : "NUC",
-      "model" : "7835",
-      "version" : "2",
-      "status" : "available"
+    "_id" : "5b9effac35fa5168a8b73f28",
+    "owner" : "Inventory",
+    "type" : "NUC",
+    "model" : "7835",
+    "version" : "2",
+    "status" : "available"
   },
   {
-      "_id" : "5b9f001035fa5168a8b73f29",
-      "owner" : "Inventory",
-      "type" : "USB Board",
-      "model" : "2222",
-      "version" : "flashless",
-      "status" : "available"
+    "_id" : "5b9f001035fa5168a8b73f29",
+    "owner" : "Inventory",
+    "type" : "USB Board",
+    "model" : "2222",
+    "version" : "flashless",
+    "status" : "available"
   },
   {
-      "_id" : "5b9f001b35fa5168a8b73f2a",
-      "owner" : "Inventory",
-      "type" : "USB Board",
-      "model" : "2222",
-      "version" : "RAM",
-      "status" : "available"
+    "_id" : "5b9f001b35fa5168a8b73f2a",
+    "owner" : "Inventory",
+    "type" : "USB Board",
+    "model" : "2222",
+    "version" : "RAM",
+    "status" : "available"
   },
   {
-      "_id" : "5b9f004035fa5168a8b73f2b",
-      "owner" : "Inventory",
-      "type" : "RF Connectors",
-      "model" : "4343",
-      "version" : "male",
-      "status" : "available"
+    "_id" : "5b9f004035fa5168a8b73f2b",
+    "owner" : "Inventory",
+    "type" : "RF Connectors",
+    "model" : "4343",
+    "version" : "male",
+    "status" : "available"
   },
   {
-      "_id" : "5b9f004535fa5168a8b73f2c",
-      "owner" : "Inventory",
-      "type" : "RF Connectors",
-      "model" : "4343",
-      "version" : "female",
-      "status" : "available"
+    "_id" : "5b9f004535fa5168a8b73f2c",
+    "owner" : "Inventory",
+    "type" : "RF Connectors",
+    "model" : "4343",
+    "version" : "female",
+    "status" : "available"
   },
   {
-      "_id" : "5b9f006c35fa5168a8b73f2d",
-      "owner" : "Inventory",
-      "type" : "Virtual Machine",
-      "model" : "2",
-      "status" : "available"
+    "_id" : "5b9f006c35fa5168a8b73f2d",
+    "owner" : "Inventory",
+    "type" : "Virtual Machine",
+    "model" : "2",
+    "status" : "available"
   },
   {
-      "_id" : "5b9f00d835fa5168a8b73f2e",
-      "owner" : "Inventory",
-      "type" : "SIM card",
-      "model" : "AT&T",
-      "version" : "nano",
-      "status" : "available"
+    "_id" : "5b9f00d835fa5168a8b73f2e",
+    "owner" : "Inventory",
+    "type" : "SIM card",
+    "model" : "AT&T",
+    "version" : "nano",
+    "status" : "available"
   },
   {
-      "_id" : "5b9f00e035fa5168a8b73f2f",
-      "owner" : "Inventory",
-      "type" : "SIM card",
-      "model" : "AT&T",
-      "version" : "microsim",
-      "status" : "available"
+    "_id" : "5b9f00e035fa5168a8b73f2f",
+    "owner" : "Inventory",
+    "type" : "SIM card",
+    "model" : "AT&T",
+    "version" : "microsim",
+    "status" : "available"
   }
 ]

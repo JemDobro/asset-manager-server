@@ -49,21 +49,44 @@ router.get('/:id', (req, res, next) => {
 
 /* ========== POST/CREATE AN ITEM ========== */
 router.post('/', (req, res, next) => {
-  const { type, model, version, quantity, start, end } = req.body;
-  const userId = req.user.id;
-
+  /*====Never trust users - validate input====*/
   const requiredFields = ['type', 'model', 'quantity', 'start', 'end'];
   const missingField = requiredFields.find(field => !(field in req.body)); 
   if (missingField) {
-    const err = new Error(`Missing '${missingField}' in request body`);
+    const err = new Error(`This is a required field -- please enter a value. Thanks!`);
     err.status = 422;
+    err.location = `${missingField}`;
+    err.reason = 'ValidationError';
     return next(err);
   }
+  
+  const stringFields = ['type', 'model', 'version'];
+  const nonStringField = stringFields.find(
+    field => field in req.body && typeof req.body[field] !== 'string'
+  );
+
+  if (nonStringField) {
+    const err = new Error(`'${nonStringField}' must be type String`);
+    err.status = 422;
+    err.location = `${nonStringField}`;
+    err.reason = 'ValidationError';
+    return next(err);
+  }
+  
+  let { type, model, version, quantity, start, end } = req.body;
+  const userId = req.user.id;
+  type = type.trim();
+  model = model.trim();
+  version = version.trim();
+  quantity = quantity.trim();
+  start = start.trim();
+  end = end.trim();
+
   const newRequest = { type, model, version, quantity, start, end, userId }; 
   Request.create(newRequest)
     .then(result => {
       return res.status(201)
-        .location(`${req.originalUrl}/${result.id}`)
+        .location(`/api/requests/${result.id}`)
         .json(result);
     })
     .catch(err => {

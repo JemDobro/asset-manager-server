@@ -21,9 +21,9 @@ userSchema.set('toObject', {
   }
 });
 
-userSchema.methods.validatePassword = function(password) {
+userSchema.methods.validatePassword = function(password) { //returns a promise, which resolves with a boolean value indicating whether or not the password is valid
   const currentUser = this;
-  return bcrypt.compare(password, currentUser.password);
+  return bcrypt.compare(password, currentUser.password);  //bcrypt.compare should return true or false
 };
 
 userSchema.statics.hashPassword = function(password) {
