@@ -17,17 +17,17 @@ const localStrategy = new LocalStrategy((username, password, done) => {
           location: 'username'
         });
       }
-      return user.validatePassword(password);
+      return user.validatePassword(password);  //should have received either true or false as value for isValid
     })
-    .then(isValid => {
-      if (!isValid) {
+    .then(isValid => {  
+      if (!isValid) { //if false, run this block, if true, skip it
         return Promise.reject({
           reason: 'LoginError',
           message: 'Incorrect password',
           location: 'password'
         });
       }
-      return done(null, user);
+      return done(null, user); //if true, user object will be added to request object at req.user
     })
     .catch(err => {
       if (err.reason === 'LoginError') {

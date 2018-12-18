@@ -11,8 +11,10 @@ router.post('/', (req, res, next) => {
   const missingField = requiredFields.find(field => !(field in req.body));
 
   if (missingField) {
-    const err = new Error(`Missing '${missingField}' in request body`);
+    const err = new Error(`This is a required field -- please enter a value. Thanks!`);
     err.status = 422;
+    err.location = `${missingField}`;
+    err.reason = 'ValidationError';
     return next(err);
   }
 
@@ -22,8 +24,10 @@ router.post('/', (req, res, next) => {
   );
 
   if (nonStringField) {
-    const err = new Error(`Field: '${nonStringField}' must be type String`);
+    const err = new Error(`'${nonStringField}' must be type String`);
     err.status = 422;
+    err.location = `${nonStringField}`;
+    err.reason = 'ValidationError';
     return next(err);
   }
 
@@ -33,8 +37,10 @@ router.post('/', (req, res, next) => {
   );
 
   if (nonTrimmedField) {
-    const err = new Error(`Field: '${nonTrimmedField} cannot start or end with whitespace`);
+    const err = new Error(`This field cannot start or end with whitespace -- please check your entry. Thanks!`);
     err.status = 422;
+    err.location = `${nonTrimmedField}`;
+    err.reason = 'ValidationError';
     return next(err);
   }
 
@@ -66,8 +72,10 @@ router.post('/', (req, res, next) => {
   );
   if (tooSmallField) {
     const min = sizedFields[tooSmallField].min;
-    const err = new Error(`Field: '${tooSmallField}' must be at least ${min} characters long`);
+    const err = new Error(`This field must be at least ${min} characters long -- please change your entry. Thanks!`);
     err.status = 422;
+    err.location = `${tooSmallField}`;
+    err.reason = 'ValidationError';
     return next(err);
   }
 
@@ -78,8 +86,10 @@ router.post('/', (req, res, next) => {
   );
   if (tooLargeField) {
     const max = sizedFields[tooLargeField].max;
-    const err = new Error(`Field: '${tooLargeField}' must be at most ${max} characters long`);
+    const err = new Error(`This field must be at most ${max} characters long --please change your entry. Thanks!`);
     err.status = 422;
+    err.location = `${tooLargeField}`;
+    err.reason = 'ValidationError';
     return next(err);
   }
 
@@ -108,8 +118,10 @@ router.post('/', (req, res, next) => {
     })
     .catch(err => {
       if (err.code === 11000) {
-        err = new Error('The username already exists');
+        err = new Error(`The Username, Email, and/or Badge Id you entered already belongs to a registered user.  Please enter your unique company Email and Badge Id, and then if you still receive this message, please choose another username.  Thanks!`);
         err.status = 400;
+        err.location = 'username';
+        err.reason = 'ValidationError';
       }
       next(err);
     });
