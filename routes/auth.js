@@ -8,15 +8,13 @@ const router = express.Router();
 
 const localAuth = passport.authenticate('local', { session: false, failWithError: true });
 
-// The user provides a username and password to login
 router.post('/login', localAuth, (req, res) => {
   const authToken = createAuthToken(req.user);
   res.json({authToken});
 });
 
-const jwtAuth = passport.authenticate('jwt', { session: false /*stops Passport from adding session cookies, which identify the user to the response--This helps prevent against cross-site request forgery (CSRF) attacks*/, failWithError: true });
+const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: true });
 
-// The user exchanges a valid JWT for a new one with a later expiration
 router.post('/refresh', jwtAuth, (req, res) => {
   const authToken = createAuthToken(req.user);
   res.json({authToken});
