@@ -11,8 +11,10 @@ router.post('/', (req, res, next) => {
   const requiredFields = ['type', 'model', 'status'];
   const missingField = requiredFields.find(field => !(field in req.body)); 
   if (missingField) {
-    const err = new Error(`Missing '${missingField}' in request body`);
+    const err = new Error(`Required field. Please enter a value.`);
     err.status = 422;
+    err.location = `${missingField}`;
+    err.reason = 'ValidationError';
     return next(err);
   }
   const newAsset = { type, model, version, owner, status, requestId, userId };

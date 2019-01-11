@@ -53,7 +53,7 @@ router.post('/', (req, res, next) => {
   const requiredFields = ['type', 'model', 'quantity', 'start', 'end'];
   const missingField = requiredFields.find(field => !(field in req.body)); 
   if (missingField) {
-    const err = new Error(`This is a required field -- please enter a value. Thanks!`);
+    const err = new Error(`Required field. Please enter a value.`);
     err.status = 422;
     err.location = `${missingField}`;
     err.reason = 'ValidationError';
@@ -152,8 +152,10 @@ router.put('/:id', (req, res, next) => {
   const requiredFields = ['type', 'model', 'quantity', 'start', 'end'];
   const missingField = requiredFields.find(field => !(field in req.body)); 
   if (missingField) {
-    const err = new Error(`Missing '${missingField}' in request body`);
+    const err = new Error(`Required field. Please enter a value.`);
     err.status = 422;
+    err.location = `${missingField}`;
+    err.reason = 'ValidationError';
     return next(err);
   }
 
