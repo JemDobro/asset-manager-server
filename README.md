@@ -1,6 +1,6 @@
 ![Asset Manager Logo][logo]
 
-[logo]: public/img/logo.png
+[logo]: img/logo.png
 
 # Asset Inventory Manager
 An app to simplify and automate the inventory management of the hardware assets of your company, allowing requestors one quick and easy place to request assets, see the status of their requests, as well as see the assets for which they are currently responsible/own.  Requestors can also cancel pending requests they no longer need, and resubmit cancelled requests should they discover they will be needing the asset after all.
@@ -20,11 +20,11 @@ An app to simplify and automate the inventory management of the hardware assets 
  * Users can resubmit requests they previously cancelled should they find they do need the asset after all.
 
 ## Screenshots
-| <img alt="Landing Page" src="public/img/LandingPage.PNG" width="350"> | <img alt="Registration" src="public/img/Registration.PNG" width="350"> | <img alt="LogIn" src="public/img/LogIn.PNG" width="350"> |
+| <img alt="Landing Page" src="img/LandingPage.PNG" width="350"> | <img alt="Registration" src="img/Registration.PNG" width="350"> | <img alt="LogIn" src="img/LogIn.PNG" width="350"> |
 |:---:|:---:|:---:|
 | Landing Page | Registration | Login |
 
-| <img alt="Dashboard" src="public/img/Dashboard.PNG" width="350"> | <img alt="Request Assets" src="public/img/RequestAssets.PNG" width="350"> | <img alt="Request Assets Dashboard" src="public/img/RequestAssetsDashboard.PNG" width="350"> |
+| <img alt="Dashboard" src="img/Dashboard.PNG" width="350"> | <img alt="Request Assets" src="img/RequestAssets.PNG" width="350"> | <img alt="Request Assets Dashboard" src="img/RequestAssetsDashboard.PNG" width="350"> |
 |:---:|:---:|:---:|
 | Dashboard | Request Assets | Request Assets with Dashboard |
 
